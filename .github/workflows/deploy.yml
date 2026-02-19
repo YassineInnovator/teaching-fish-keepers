@@ -28,7 +28,7 @@ jobs:
         with:
           context: ./backend
           push: true
-          # ✅ Correction : Nom en minuscules pour éviter les erreurs Docker
+          # ✅ Correction : Nom en minuscules
           tags: ghcr.io/yassineinnovator/backend:latest
 
       - name: Build and push Frontend
@@ -44,7 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.0
+        # ✅ Modification : Passage à la version master pour une meilleure compatibilité des clés
+        uses: appleboy/ssh-action@master 
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
