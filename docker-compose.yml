@@ -38,7 +38,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "8081:80"   # <--- J'ai mis 8081 ici pour éviter le conflit !
+      - "8081:80" # <--- J'ai mis 8081 ici pour éviter le conflit !
     depends_on:
       - backend
 
