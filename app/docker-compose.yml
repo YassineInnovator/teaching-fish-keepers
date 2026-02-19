@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:17
+    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -17,13 +18,16 @@ services:
 
   adminer:
     image: adminer
+    restart: always
     ports:
       - "8080:8080"
     depends_on:
       - postgres
 
   backend:
-    build: ./backend
+    # Image qui sera construite par GitHub Actions
+    image: ghcr.io/yassineinnovator/teaching-fish-keepers-backend:latest
+    restart: always
     ports:
       - "3000:3000"
     environment:
@@ -36,9 +40,11 @@ services:
         condition: service_healthy
 
   frontend:
-    build: ./frontend
+    # Image qui sera construite par GitHub Actions
+    image: ghcr.io/yassineinnovator/teaching-fish-keepers-frontend:latest
+    restart: always
     ports:
-      - "8081:80"   # <--- J'ai mis 8081 ici pour éviter le conflit !
+      - "80:80"
     depends_on:
       - backend
 
