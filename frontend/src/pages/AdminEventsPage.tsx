@@ -50,18 +50,10 @@ export default function AdminEventsPage() {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="py-3 px-2 text-sm font-semibold text-gray-700">
-                  Titre
-                </th>
-                <th className="py-3 px-2 text-sm font-semibold text-gray-700">
-                  Date
-                </th>
-                <th className="py-3 px-2 text-sm font-semibold text-gray-700">
-                  Lieu
-                </th>
-                <th className="py-3 px-2 text-sm font-semibold text-gray-700">
-                  Actions
-                </th>
+                <th className="py-3 px-2 text-sm font-semibold text-gray-700">Titre</th>
+                <th className="py-3 px-2 text-sm font-semibold text-gray-700">Date</th>
+                <th className="py-3 px-2 text-sm font-semibold text-gray-700">Lieu</th>
+                <th className="py-3 px-2 text-sm font-semibold text-gray-700">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -71,9 +63,7 @@ export default function AdminEventsPage() {
                   <td className="py-3 px-2 text-sm text-gray-600">
                     {new Date(event.date).toLocaleDateString("fr-FR")}
                   </td>
-                  <td className="py-3 px-2 text-sm text-gray-600">
-                    {event.location}
-                  </td>
+                  <td className="py-3 px-2 text-sm text-gray-600">{event.location}</td>
                   <td className="py-3 px-2 flex gap-2">
                     <Link
                       to={`/admin/events/${event.id}/edit`}

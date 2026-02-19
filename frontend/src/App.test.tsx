@@ -22,8 +22,6 @@ describe("App", () => {
       </MemoryRouter>,
     );
 
-    expect(
-      screen.getByRole("heading", { name: /club poisson/i, level: 1 }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /club poisson/i, level: 1 })).toBeInTheDocument();
   });
 });

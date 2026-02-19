@@ -27,10 +27,7 @@ export default function App() {
                 <Link to="/admin" className="hover:underline">
                   Admin
                 </Link>
-                <button
-                  onClick={handleLogout}
-                  className="hover:underline cursor-pointer"
-                >
+                <button onClick={handleLogout} className="hover:underline cursor-pointer">
                   Déconnexion
                 </button>
               </>

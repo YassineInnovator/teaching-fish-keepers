@@ -12,7 +12,7 @@ L'association **Club Poisson** regroupe des passionnés d'aquariophilie de la r�
 
 Un des membres bénévoles, développeur autodidacte, a pris l'initiative de créer une application web pour gérer et afficher les événements de l'association. Après quelques semaines de travail le soir et le week-end, il est arrivé à un résultat fonctionnel : un backend en TypeScript avec Bun, un frontend React, et une base de données PostgreSQL. L'application tourne parfaitement... **sur sa machine**.
 
-Mais voilà : quand le bureau de l'association lui demande *"Et du coup, on peut l'utiliser quand ?"*, il réalise qu'il n'a aucune idée de comment mettre tout cela en production de manière fiable. Pas de tests, pas de pipeline d'intégration continue, pas de processus de déploiement. Il a entendu parler de Docker et de CI/CD, mais n'a jamais mis cela en pratique.
+Mais voilà : quand le bureau de l'association lui demande _"Et du coup, on peut l'utiliser quand ?"_, il réalise qu'il n'a aucune idée de comment mettre tout cela en production de manière fiable. Pas de tests, pas de pipeline d'intégration continue, pas de processus de déploiement. Il a entendu parler de Docker et de CI/CD, mais n'a jamais mis cela en pratique.
 
 C'est là que l'association fait appel à vous. Votre mission : reprendre ce projet en l'état et le rendre **déployable en production avec un niveau de qualité professionnel**.
 
@@ -38,6 +38,7 @@ club-poisson/
 - **Authentification :** Sessions en mémoire avec TTL de 24h, mot de passe vérifié contre la variable d'environnement `ADMIN_PASSWORD`
 
 Commandes :
+
 ```bash
 cd backend
 bun install
@@ -52,6 +53,7 @@ bun dev       # Démarrage avec watch mode
 - **Linting existant :** ESLint 9 (config flat) avec plugins TypeScript et React
 
 Commandes :
+
 ```bash
 cd frontend
 bun install
@@ -208,13 +210,13 @@ Dernière étape : automatiser le déploiement de l'application sur un **serveur
 
 ## Critères d'évaluation
 
-| Critère | Description |
-|---|---|
-| **Fonctionnalité** | L'application est déployée et fonctionne correctement en production |
-| **Qualité du code** | Tests pertinents, linting et formatage en place, code propre |
-| **Pipeline CI/CD** | Le pipeline est complet, fiable et bien structuré |
-| **Conteneurisation** | Dockerfiles optimisés, docker-compose fonctionnel |
-| **Bonnes pratiques** | Gestion des secrets, configuration par environnement, documentation |
+| Critère                    | Description                                                                             |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| **Fonctionnalité**         | L'application est déployée et fonctionne correctement en production                     |
+| **Qualité du code**        | Tests pertinents, linting et formatage en place, code propre                            |
+| **Pipeline CI/CD**         | Le pipeline est complet, fiable et bien structuré                                       |
+| **Conteneurisation**       | Dockerfiles optimisés, docker-compose fonctionnel                                       |
+| **Bonnes pratiques**       | Gestion des secrets, configuration par environnement, documentation                     |
 | **Autonomie et réflexion** | Capacité à identifier et résoudre des problèmes non explicitement décrits dans le sujet |
 
 ### Bonus
@@ -248,4 +250,4 @@ Des points supplémentaires seront attribués pour les initiatives allant au-del
 
 ---
 
-*Bonne chance, l'association compte sur vous ! Les poissons aussi.* 🐟
+_Bonne chance, l'association compte sur vous ! Les poissons aussi._ 🐟
