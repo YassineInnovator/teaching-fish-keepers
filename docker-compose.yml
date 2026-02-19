@@ -23,7 +23,8 @@ services:
       - postgres
 
   backend:
-    build: ./backend
+    image: ghcr.io/yassineinnovator/backend:latest
+    pull_policy: always
     ports:
       - "3000:3000"
     environment:
@@ -31,9 +32,9 @@ services:
       PGDATABASE: clubpoisson
       PGUSER: clubpoisson
       PGPASSWORD: clubpoisson
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     depends_on:
-      postgres:
-        condition: service_healthy
+      - postgres
 
   frontend:
     build: ./frontend
