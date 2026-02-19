@@ -1,0 +1,6 @@
+node_modules
+dist
+coverage
+*.log
+frontend/bun.lock
+backend/bun.lock
