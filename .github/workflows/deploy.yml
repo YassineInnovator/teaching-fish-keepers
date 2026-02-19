@@ -28,7 +28,6 @@ jobs:
         with:
           context: ./backend
           push: true
-          # ✅ Correction : Nom en minuscules
           tags: ghcr.io/yassineinnovator/backend:latest
 
       - name: Build and push Frontend
@@ -36,7 +35,6 @@ jobs:
         with:
           context: ./frontend
           push: true
-          # ✅ Correction : Nom en minuscules
           tags: ghcr.io/yassineinnovator/frontend:latest
 
   deploy:
@@ -44,13 +42,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy via SSH
-        # ✅ Modification : Passage à la version master pour une meilleure compatibilité des clés
-        uses: appleboy/ssh-action@master 
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          # passphrase: ${{ secrets.SSH_PASSPHRASE }} # ajoute seulement si ta cl? en a une
+          script_stop: true
+          command_timeout: 20m
           script: |
-            cd ~/projet
-            docker compose pull
-            docker compose up -d
+            cd ${{ secrets.DEPLOY_PATH }}
+            docker compose pull backend
+            docker compose up -d backend
