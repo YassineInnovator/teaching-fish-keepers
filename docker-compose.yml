@@ -9,6 +9,11 @@ services:
       POSTGRES_PASSWORD: clubpoisson
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clubpoisson"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   adminer:
     image: adminer
@@ -27,12 +32,13 @@ services:
       PGUSER: clubpoisson
       PGPASSWORD: clubpoisson
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "8081:80" # <--- J'ai mis 8081 ici pour éviter le conflit !
     depends_on:
       - backend
 
